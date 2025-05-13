@@ -3,7 +3,7 @@ package com.ouaskanas.commerce.controller;
 import com.ouaskanas.commerce.dto.request.LoginDto;
 import com.ouaskanas.commerce.dto.request.RegisterDto;
 import com.ouaskanas.commerce.dto.response.AuthResponse;
-import com.ouaskanas.commerce.service.impl.AuthService;
+import com.ouaskanas.commerce.service.services.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

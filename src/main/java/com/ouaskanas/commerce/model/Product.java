@@ -15,7 +15,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
     private String productName;
+    @Column(length = 500)
     private String productDescription;
+    @Column(length = 500)
     private String productImg;
     private Float productPrice;
     private int productStock;

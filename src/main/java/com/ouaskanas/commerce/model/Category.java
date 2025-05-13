@@ -17,6 +17,4 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long categoryId;
     private String categoryName;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Product> products;
 }

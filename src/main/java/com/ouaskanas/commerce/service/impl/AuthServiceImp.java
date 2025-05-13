@@ -4,7 +4,6 @@ import com.ouaskanas.commerce.config.CookiesConfig;
 import com.ouaskanas.commerce.dto.request.LoginDto;
 import com.ouaskanas.commerce.dto.request.RegisterDto;
 import com.ouaskanas.commerce.dto.response.AuthResponse;
-import com.ouaskanas.commerce.mapper.UserMapper;
 import com.ouaskanas.commerce.model.User;
 import com.ouaskanas.commerce.model.enums.Role;
 import com.ouaskanas.commerce.repository.UserRepository;
@@ -24,7 +23,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
 @Service
-public class AuthService implements com.ouaskanas.commerce.service.services.AuthService {
+public class AuthServiceImp implements com.ouaskanas.commerce.service.services.AuthService {
 
     @Autowired
     private CookiesConfig cookiesConfig;
