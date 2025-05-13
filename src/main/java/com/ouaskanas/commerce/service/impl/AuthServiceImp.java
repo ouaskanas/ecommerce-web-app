@@ -50,9 +50,6 @@ public class AuthServiceImp implements com.ouaskanas.commerce.service.services.A
         if (userRepository.existsByEmail(registerDto.getEmail())) {
             throw new RuntimeException("Email already exists");
         }
-        if(registerDto.getPassword()==registerDto.getConfirmPassword()){
-            throw new RuntimeException("Passwords do not match");
-        }
         User user = User.builder()
                     .email(registerDto.getEmail()).age(registerDto.getAge())
                     .city(registerDto.getCity()).address(registerDto.getAddress()).password(passwordEncoder.encode(registerDto.getPassword()))
@@ -79,9 +76,6 @@ public class AuthServiceImp implements com.ouaskanas.commerce.service.services.A
     public AuthResponse Admin(HttpServletResponse response, RegisterDto registerDto) {
         if (userRepository.existsByEmail(registerDto.getEmail())){
             throw new RuntimeException("Email already exists");
-        }
-        if(registerDto.getPassword().equals(registerDto.getConfirmPassword())){
-            throw new RuntimeException("Passwords do not match");
         }
         User user = User.builder()
                 .email(registerDto.getEmail()).age(registerDto.getAge())

@@ -13,7 +13,6 @@ public class RegisterDto {
     private String lastName;
     private String email;
     private String password;
-    private String confirmPassword;
     private String address;
     private String city;
     private int age;

@@ -8,6 +8,7 @@ import com.nimbusds.jose.jwk.source.JWKSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,7 +52,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req->req.requestMatchers("/api/auth/**").permitAll()
                                                                         .requestMatchers("/api/test/**").permitAll()
                                                                         .requestMatchers("/api/v1/product/**").permitAll()
-                                                                        .requestMatchers("/api/v1/category/**").authenticated()
+                                                                        .requestMatchers(HttpMethod.GET,"/api/v1/category/**").permitAll()
+                                                                        .requestMatchers(HttpMethod.POST,"/api/v1/category/**").hasRole("ADMIN")
+                                                                        .requestMatchers(HttpMethod.DELETE,"/api/v1/category/**").hasRole("ADMIN")
                                                                         .requestMatchers("/api/orders/**").authenticated()
                                                                         .requestMatchers("/api/carts/**").authenticated()
                                                                         .requestMatchers("/api/admin/**").hasRole("ADMIN"))
